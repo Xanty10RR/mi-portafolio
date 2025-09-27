@@ -80,9 +80,16 @@ const { description, title } = Astro.props;
     ></script>
 
     <!-- Scripts globales del sitio -->
-    <script>
-      import "../scripts/like.js";
-      import "../scripts/barra.js";
+    <script is:inline>
+      // Script para la barra de progreso de scroll
+      window.addEventListener("scroll", () => {
+        const barra = document.getElementById("barra");
+        if (!barra) return;
+        const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollActual = window.scrollY;
+        const porcentaje = (scrollActual / scrollTotal) * 100;
+        barra.style.width = `${porcentaje}%`;
+      });
     </script>
   </body>
 </html>
