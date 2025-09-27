@@ -1,3 +1,5 @@
+import emailjs from "emailjs-com";
+
 export function initContactForm(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY) {
   const form = document.getElementById("contact-form");
   const submitBtn = document.getElementById("submit-btn");

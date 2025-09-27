@@ -84,14 +84,8 @@ const PUBLIC_KEY = "5H1KTm3UkOyL47Nnd";
   <!-- Toasts -->
   <div id="toast-container" class="fixed top-4 right-4 space-y-2 z-50"></div>
 </section>
-<!-- Inicializar EmailJS -->
-<script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-></script>
-
 <!-- Este script se encarga de la lógica del formulario en el lado del cliente -->
-<script define:vars={{ SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY }}>
+<script type="module" define:vars={{ SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY }}>
   import { initContactForm } from "@/scripts/formulario.js";
 
   initContactForm(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
