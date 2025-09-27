@@ -1,0 +1,160 @@
+---
+import LinkedInIcon from "../Icons/LinkedIn.astro";
+import GitHub from "../Icons/GitHub.astro";
+import GmailIcon from "../Icons/Gmail.astro";
+import SubirBtn from "../Icons/SubirBtn.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="mt-auto rounded-lg shadow-sm bg-transparent backdrop-blur-lg w-full mx-auto"
+>
+  <div class="w-full max-w-screen-xl mx-auto px-4 py-6 md:py-10">
+    <!-- Top section -->
+    <div
+      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
+    >
+      <!-- Logo + Título + Like -->
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+        <button
+          id="likeButton"
+          class="flex items-center gap-2 text-pink-400 hover:text-pink-500 transition text-lg font-semibold"
+        >
+          LIKES ❤️ <span id="likeCount">0</span>
+        </button>
+
+        <p
+          class="text-base md:text-lg lg:text-xl font-semibold whitespace-nowrap text-white"
+        >
+          Con estilo y cariño por Santiago
+        </p>
+
+        <p id="likeMessage" class="text-sm text-gray-400 hidden">
+          ❤️ Le diste "Me gusta" al portafolio de Santiago
+        </p>
+      </div>
+
+      <ul
+        class="flex flex-wrap justify-center gap-5 md:gap-6 text-sm font-medium text-white/90"
+      >
+        <li>
+          <a href="/#experiencia" class="hover:text-sky-300 transition"
+            >Experiencia</a
+          >
+        </li>
+        <li>
+          <a href="/#proyectos" class="hover:text-sky-300 transition"
+            >Proyectos</a
+          >
+        </li>
+        <li>
+          <a href="/#habilidades" class="hover:text-sky-300 transition"
+            >Habilidades</a
+          >
+        </li>
+        <li>
+          <a href="/#sobre-mi" class="hover:text-sky-300 transition">Sobre mí</a
+          >
+        </li>
+        <li>
+          <a href="/#contacto" class="hover:text-sky-300 transition"
+            >Contáctame</a
+          >
+        </li>
+        <li>
+          <a
+            href="/#top"
+            id="subirBtn"
+            class="flex items-center rounded-lg bg-white/10 text-white px-2 py-0.5 hover:drop-shadow-[0_0_2px_rgba(255,255,255,0.7)]"
+            aria-label="Volver arriba"
+          >
+            Subir
+            <SubirBtn />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Línea divisoria -->
+    <hr
+      class="my-6 border-gray-500 sm:mx-auto dark:border-[#6633EE] lg:my-8 shadow-[0_0_10px_rgba(147,197,253,0.7)]"
+    />
+
+    <div class="flex justify-center gap-6 mb-6">
+      <a
+        href="https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/"
+        target="_blank"
+        class="text-blue-400 hover:text-blue-500 hover:drop-shadow-[0_0_6px_rgba(147,197,253,0.9)] transition"
+        aria-label="LinkedIn"
+      >
+        <LinkedInIcon class="size-5 md:size-6" />
+      </a>
+
+      <a
+        href="https://github.com/Xanty10RR"
+        target="_blank"
+        class="text-gray-300 hover:text-white hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.7)] transition"
+        aria-label="GitHub"
+      >
+        <GitHub class="size-5 md:size-6" />
+      </a>
+
+      <a
+        href="mailto:santiagocajamarca.37@gmail.com"
+        class="text-purple-400 hover:text-purple-500 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)] transition"
+        aria-label="Correo"
+      >
+        <GmailIcon class="size-5 md:size-6" />
+      </a>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <span
+        class="text-center text-xs md:text-sm text-gray-400 dark:text-gray-200"
+      >
+        ©{currentYear}. Todos los Derechos Reservados.
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="module" is:inline>
+  import { doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+  const db = window.db; // 👈 lo traemos del Layout
+
+  const likeButton = document.getElementById("likeButton");
+  const likeCount = document.getElementById("likeCount");
+  const likeMessage = document.getElementById("likeMessage");
+
+  const docRef = doc(db, "likes", "portafolio");
+
+  async function loadLikes() {
+    const snap = await getDoc(docRef);
+    if (snap.exists()) {
+      likeCount.textContent = snap.data().count;
+    } else {
+      await setDoc(docRef, { count: 0 });
+      likeCount.textContent = 0;
+    }
+  }
+
+  likeButton.addEventListener("click", async () => {
+    await updateDoc(docRef, { count: increment(1) });
+    const updated = await getDoc(docRef);
+    likeCount.textContent = updated.data().count;
+    likeMessage.classList.remove("hidden");
+  });
+
+  loadLikes();
+</script>
+
+<script>
+  document.getElementById("subirBtn")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>

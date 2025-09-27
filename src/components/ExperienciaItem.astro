@@ -1,0 +1,29 @@
+---
+interface Props {
+  fecha: string;
+  cargo: string;
+  titulo: string;
+  descripcion: string;
+}
+
+const { fecha, cargo, titulo, descripcion } = Astro.props;
+---
+
+<div
+  class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-[#93C5FD] shadow-[0_0_6px_rgba(147,197,253)]"
+>
+</div>
+<time class="inline-block px-3 py-1 mb-3 text-xs font-medium rounded-full text-white/80 shadow-[0_0_5px_rgba(147,197,253)] light:text-blue-400"
+  >{fecha}</time
+>
+<h3 class="text-xl font-bold text-[#93C5FD] mb-1">
+  {cargo}
+</h3>
+<h4 class="text-lg font-bold text-[#93C5FD] mb-1">
+  {titulo}
+</h4>
+<p class="mb-4">
+  {descripcion.split('\n').map((paragraph => (
+    <p class="text-pretty mb-3 text-lg">{paragraph}</p>
+  )))}
+</p>

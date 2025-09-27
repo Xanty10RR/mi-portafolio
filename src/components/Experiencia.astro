@@ -1,0 +1,37 @@
+---
+import ExperienciaItem from "./ExperienciaItem.astro";
+const experiencia = [
+  {
+    fecha: "03 Junio 2025 - 15 Junio 2025",
+    cargo: "AUXILIAR SERVICIOS TIC",
+    titulo: "SUPERSERVICIOS DE NARIÑO S.A (SUPERGIROS)",
+    descripcion:
+      "Tras finalizar mis prácticas, fui contratado por un tiempo como Auxiliar de Servicios TIC, continué brindando soporte técnico y manteniendo las soluciones desarrolladas y también pude seguir fortaleciendo mis habilidades de programación y atención al usuario desde un rol más formal en la empresa.",
+  },
+  {
+    fecha: "02 Diciembre 2024 - 01 Junio 2025",
+    cargo: "PRÁCTICAS DE GRADO",
+    titulo: "SUPERSERVICIOS DE NARIÑO S.A (SUPERGIROS)",
+    descripcion:
+      "Durante mis prácticas en el área TIC, tuve la oportunidad de aprender desde la parte operativa de la empresa y poner en práctica la parte de desarrollo. Apoyé en la Mesa de Ayuda, gestionando tickets, correos y llamadas de soporte a asesoras o cajeras de los diferentes puntos de venta con dificultades en plataformas internas. Ofrecí soluciones rápidas y claras a problemas técnicos en herramientas de uso diario. \n\nMás adelante, desarrollé una Encuesta de Satisfaccion al cliente, con base de datos y un panel administrativo para visualizar y gestionar los resultados. \n\nTambién creé un chatbot para WhatsApp, que permite a los usuarios consultar automáticamente los convenios disponibles en la empresa, mejorando la atención y reduciendo la carga operativa.",
+  },
+  {
+    fecha: "15 Marzo 2024 - 02 Agosto 2024",
+    cargo: "APRENDIZ SENA",
+    titulo: "INSTITUCIÓN EDUCATIVA TERESIANO - SEDE LA JARDINERA",
+    descripcion:
+      "En el marco de mi formación como técnico en Programación de Software se llevó acabo un proyecto formativo, desarrollé junto a un equipo de tres personas una página web informativa para la Institución Educativa Teresiano sede La Jardinera, como solución a una necesidad del sector educativo en el municipio de Tuquerres. \n\nAplicando el ciclo de vida del software completo: análisis de requerimientos, diseño, desarrollo, pruebas e implementación.",
+  },
+];
+---
+
+<ol class="relative border-s border-[#93C5FD] ml-2.5 pt-7">
+  {
+    experiencia.map((experiencia) => (
+      <li class="mb-10 ms-6">
+        <ExperienciaItem {...experiencia} />
+      </li>
+    ))
+  }
+</ol>
+

@@ -1,0 +1,274 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { description, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="keywords"
+      content="Santiago, Portafolio, Programador, Desarrollador, Software, Web"
+    />
+    <meta name="author" content="Daniel Santiago Rosero Cajamarca" />
+    <meta name="copyright" content="Daniel Santiago Rosero Cajamarca" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content={new URL("/og-image.png", Astro.url)} />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="../public/favicon.svg" />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <!-- Firebase App (obligatorio) -->
+    <script type="module" is:inline>
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCCMFgCXgavf9mGYKgm65qBaS_d-Za38n4",
+        authDomain: "portafolio-xanty10rr.firebaseapp.com",
+        projectId: "portafolio-xanty10rr",
+        storageBucket: "portafolio-xanty10rr.firebasestorage.app",
+        messagingSenderId: "888404637209",
+        appId: "1:888404637209:web:935a59edd82b20e3519c88",
+        measurementId: "G-G983GGJYN1"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      window.db = getFirestore(app); // 👈 guardamos db en window para usarlo en Footer.astro
+    </script>
+
+  </head>
+  <body class="relative min-h-screen">
+    <div
+      class="fixed inset-0 -z-10 w-full h-full [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+    >
+    </div>
+    <Header />
+    <!-- Espaciador para el header fijo -->
+    <div class="h-20"></div>
+    <!-- Script para la barra de progreso -->
+    <script src="/scripts/barra.js" defer></script>
+    <!-- Contenido de la página -->
+    <main class="px-4 flex-grow">
+      <slot />
+    </main>
+    <Footer />
+    <script src="/scripts/like.js" defer></script>
+    <!-- Flowbite JS -->
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
+    ></script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: dark;
+  }
+
+  /* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
+  html {
+    font-family: "Onest Variable", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #050505;
+    color: #f5f5f5;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  header {
+    height: 80px;
+  }
+
+  .carousel {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  .imagenes {
+    margin: 28px;
+    display: flex;
+    gap: 4rem;
+    animation: scroll 65s linear infinite;
+    will-change: transform; /* Optimiza la animación para que sea más fluida */
+  }
+
+  .carousel .imagenes > * {
+    flex: 0 0 auto; /* imagenes de carousel no se encogen ni se estiran */
+    width: 80px; /* tamaño uniforme */
+    height: 80px;
+    object-fit: contain;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  .carousel:hover .imagenes {
+    animation-play-state: paused;
+  }
+
+  .carousel .imagenes > *:hover {
+    transform: scale(1.2) rotate(-370deg);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  /* animación infinita de derecha a izquierda */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  #barra {
+    width: 0%;
+    height: 7px;
+    background: linear-gradient(
+      90deg,
+      #8ce0f8,
+      /* azul fluorescente */ #5147ff,
+      /* azul marino */ #361b7e /* morado profundo */
+    );
+    z-index: 9999;
+    animation: alternate 2s infinite;
+  }
+
+  header nav ul li {
+    display: flex; /* Permite que el 'a' se mueva libremente dentro */
+    transition: transform 0.3s ease;
+  }
+
+  header nav ul li:hover {
+    transform: translateY(-6px);
+  }
+
+  .navegacion {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    transition:
+      color 0.3s ease,
+      text-shadow 0.3s ease;
+    text-align: center;
+  }
+
+  header nav ul li:hover .navegacion {
+    color: #916df2;
+    text-shadow:
+      0 0 8px #916df2,
+      0 0 15px #916df2;
+    animation: neon-pulse 1.2s infinite alternate;
+    background: linear-gradient(90deg, #60dbfd, #916df2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .navegacion::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: #6633ee;
+    transition: width 0.3s ease;
+  }
+
+  header nav ul li:hover .navegacion::after {
+    width: 100%;
+  }
+
+  @keyframes neon-pulse {
+    0%,
+    50%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+      text-shadow:
+        0 0 10px #9f7ef2,
+        0 0 30px #8b65f6;
+    }
+  }
+
+  /* ===== Scrollbar Estilo General ===== */
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #361b7e; /* color exacto del background */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    animation: glow 2s infinite ease-in-out;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow:
+      0 0 5px rgba(147, 197, 253),
+      0 0 10px rgba(147, 197, 253),
+      0 0 20px rgba(147, 197, 253);
+    border: 1px solid #93c5fd;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #93c5fd;
+  }
+</style>

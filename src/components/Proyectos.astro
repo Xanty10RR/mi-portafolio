@@ -1,0 +1,190 @@
+---
+import HTML from "../Icons/HTML.astro";
+import CSSicon from "../Icons/CSS.astro";
+import JavaScript from "../Icons/JavaScript.astro";
+import PHP from "../Icons/PHP.astro";
+import LinkBoton from "./LinkBoton.astro";
+import GitHub from "../Icons/GitHub.astro";
+import BotonWeb from "../Icons/BotonWeb.astro";
+import TypeScript from "../Icons/Typescript.astro";
+import NodeJS from "../Icons/NodeJS.astro";
+import ExpressJS from "../Icons/ExpressJS.astro";
+import PostgreSQL from "../Icons/PostgreSQL.astro";
+import Docker from "../Icons/Docker.astro";
+import Bootstrap from "../Icons/Bootstrap.astro";
+import Tailwind from "../Icons/Tailwind.astro";
+import React from "../Icons/React.astro";
+import Electron from "../Icons/Electron.astro";
+import Vite from "../Icons/Vite.astro";
+
+const Tags = {
+  HTML: {
+    name: "HTML",
+    class: "bg-transparent text-[#ef652a]",
+    icon: HTML,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-transparent text-[#264de4]",
+    icon: CSSicon,
+  },
+  JavaScript: {
+    name: "JavaScript",
+    class: "bg-transparent text-[#F7DF1E]",
+    icon: JavaScript,
+  },
+  PHP: {
+    name: "PHP",
+    class: "bg-transparent text-[#8993BE]",
+    icon: PHP,
+  },
+  TypeScript: {
+    name: "TypeScript",
+    class: "bg-transparent text-[#3178C6]",
+    icon: TypeScript,
+  },
+  NodeJS: {
+    name: "NodeJS",
+    class: "bg-transparent text-[#3FAE2A]",
+    icon: NodeJS,
+  },
+  ExpressJS: {
+    name: "ExpressJS",
+    class: "bg-transparent text-white",
+    icon: ExpressJS,
+  },
+  PostgreSQL: {
+    name: "PostgreSQL",
+    class: "bg-transparent text-[#5C7EE5]",
+    icon: PostgreSQL,
+  },
+  Docker: {
+    name: "Docker",
+    class: "bg-transparent text-[#2496ED]",
+    icon: Docker,
+  },
+  Bootstrap: {
+    name: "Bootstrap",
+    class: "bg-transparent text-[#9F51F9]",
+    icon: Bootstrap,
+  },
+  Tailwind: {
+    name: "Tailwind",
+    class: "bg-transparent text-[#06B6D4]",
+    icon: Tailwind,
+  },
+  React: {
+    name: "React",
+    class: "bg-transparent text-[#61DAFB]",
+    icon: React,
+  },
+  Electron: {
+    name: "Electron",
+    class: "bg-transparent text-[#A2ECFB]",
+    icon: Electron,
+  },
+  Vite: {
+    name: "Vite",
+    class: "bg-transparent text-[#FFEA83]",
+    icon: Vite,
+  },
+};
+
+const ProyectosItem = [
+  {
+    titulo: "SoporteSSN - Chatbot de Whatsapp",
+    descripcion:
+      "Este chatbot para WhatsApp permite a los clientes consultar fácilmente los convenios disponibles de SuperServicios de Nariño S.A (SuperGIROS) para realizar pagos y recibir respuestas automáticas, está diseñado para optimizar la atención al cliente, brindar soporte inmediato y reducir los tiempos de espera, mejorando así la eficiencia. \n\nSe conecta a través de la biblioteca Baileys, que es una potente librería para interactuar con WhatsApp utilizando Node.js.",
+    link: "https://wa.me/message/553JYY6DRKDDA1",
+    imagen: "/proyectos/img-bot-whatsapp.webp",
+    tags: [
+      Tags.TypeScript,
+      Tags.JavaScript,
+      Tags.NodeJS,
+      Tags.ExpressJS,
+      Tags.PostgreSQL,
+      Tags.Docker,
+    ],
+    github: "https://github.com/Xanty10RR/Bot-WhatsApp-SSN.git",
+  },
+  {
+    titulo: "SuperMenu - Panel de control de servicios",
+    descripcion:
+      "Es un sistema de gestión interno (un ERP a medida) que ayuda a organizar solicitudes, entregas, soporte, usuarios y requisiciones en una única aplicación de escritorio, mejorando la eficiencia y el seguimiento de las operaciones de la empresa de una manera significativa.",
+    link: "",
+    imagen: "/proyectos/superMenu.webp",
+    tags: [Tags.Electron, Tags.React, Tags.Vite, Tags.TypeScript, Tags.CSS, Tags.NodeJS, Tags.PostgreSQL],
+    github: "https://github.com/Xanty10RR/SuperMenu.git",
+  },
+  {
+    titulo: "Encuesta de Satisfacción al Cliente",
+    descripcion:
+      "Desarrollo web para medir la calidad del servicio de las asesoras o cajeras en los diferentes puntos de venta de la empresa SuperGIROS hacia los clientes, mejora la toma de decisiones en la empresa con respecto al personal e identificar los problemas más comunes para mejorar el servicio. \n\nLas tecnologías y herramientas utilizadas fueron HTML, CSS, Javascript y PostgreSQL para la base de datos. Se integró en todos los puntos de venta mediante un código QR que los clientes escanean para ingresar a la encuesta y los datos",
+    link: "",
+    imagen: "/proyectos/img-proyecto1.webp",
+    tags: [Tags.PHP, Tags.JavaScript, Tags.HTML, Tags.CSS, Tags.Bootstrap],
+    github: "https://github.com/Xanty10RR/Atencion-Cliente.git",
+  },
+  {
+    titulo: "Sitio web de la institución educativa teresiano sede La Jardinera",
+    descripcion:
+      "El sitio web proporciona información sobre la institución como su misión, visión, filosofia institucional, valores, ideal educativo, simbolos institucionales, además se puede ver la ubicación en donde se encuentra, facilitando la comunicación entre la escuela y la comunidad. \n\nSe utilizó HTML, CSS y JavaScript para el desarrollo del sitio web, asegurando una experiencia de usuario atractiva y funcional.",
+    link: "https://escuelita-la-jardinera.vercel.app/",
+    imagen: "/proyectos/img_la_jardinera.webp",
+    tags: [Tags.HTML, Tags.CSS, Tags.JavaScript, Tags.Tailwind],
+    github: "https://github.com/Xanty10RR/Escuela-LaJardinera",
+  },
+];
+---
+
+<section class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6 p-2 pt-7">
+  {
+    ProyectosItem.map(({ titulo, descripcion, imagen, tags, link, github }) => (
+      <article class="bg-transparent rounded-lg shadow-lg flex flex-col overflow-hidden border-[#6633EE] border-2 hover:shadow-[0_0_8px_rgba(147,197,253)]">
+        <img
+          src={imagen}
+          alt={`Captura del proyecto ${titulo}`}
+          class="h-56 w-full object-cover rounded shadow-sm transition-all duration-700 hover:scale-110 hover:bg-blue-300 hover:shadow-blue-300"
+        />
+        <div class="p-4 flex flex-col flex-1 hover:shadow-[0_0_5px_rgba(147,197,253)]">
+          <h3 class="text-xl font-bold text-[#93C5FD] mb-2">{titulo}</h3>
+          <div class="text-gray-200 mb-2 font-semibold text-md">
+            {descripcion.split("\n\n").map((par, idx) => (
+              <p class="mb-2">{par}</p>
+            ))}
+          </div>
+          <ul class="flex flex-wrap gap-2 mb-5 text-center justify-center">
+            {tags.map((tag) => (
+              <li class="shadow-[0_0_7px_rgba(147,197,253)] rounded-full light:text-blue-400 mb-1.5 mx-0.5 font-semibold">
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${typeof tag === "object" && tag.class ? tag.class : "bg-white text-black"} py-1 px-2`}
+                >
+                  {typeof tag === "object" && tag.icon ? (
+                    <>
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </>
+                  ) : (
+                    tag
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <footer class="mt-auto flex gap-4 justify-center">
+            <LinkBoton href={github}>
+              <GitHub class="size-6 mr-1.5" />
+              Ver código fuente
+            </LinkBoton>
+            {link && (
+              <LinkBoton href={link}>
+                <BotonWeb class="size-6 mr-1.5" />
+                Ir al sitio web
+              </LinkBoton>
+            )}
+          </footer>
+        </div>
+      </article>
+    ))
+  }
+</section>

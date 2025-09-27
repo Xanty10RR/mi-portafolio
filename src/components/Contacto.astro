@@ -1,0 +1,204 @@
+---
+// Las variables para el formulario de contacto. Se pasarán al script del cliente.
+
+const SERVICE_ID = "service_xi4ofm9";
+const TEMPLATE_ID = "template_0n0827w";
+const PUBLIC_KEY = "5H1KTm3UkOyL47Nnd";
+---
+
+<section class="relative max-w-lg mx-auto">
+  <div class="cosmic-bg"></div>
+  <div
+    class="p-8 rounded-2xl bg-black/40 backdrop-blur-md border border-purple-500/20 shadow-xl text-white glow-card relative z-10"
+  >
+    <h2
+  class="text-xl lg:text-2xl font-bold mb-6 text-center 
+         bg-gradient-to-r from-purple-400 via-indigo-300 to-blue-300 
+         bg-clip-text text-transparent drop-shadow-lg">
+  ¡Envíame un mensaje!
+</h2>
+
+
+    <form id="contact-form" class="flex flex-col gap-4">
+      <input
+        type="text"
+        name="name"
+        placeholder="Tu nombre"
+        required
+        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Tu correo"
+        required
+        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"
+      />
+
+      <input
+        type="text"
+        name="title"
+        placeholder="Asunto"
+        required
+        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"
+      />
+
+      <textarea
+        name="message"
+        placeholder="Escribe tu mensaje..."
+        required
+        rows="4"
+        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"
+      ></textarea>
+
+      <button
+        id="submit-btn"
+        type="submit"
+        class="relative bg-gradient-to-r from-[#93C5FD] to-purple-800 hover:from-[#93C5FD]/90 hover:to-purple-900 p-3 rounded-lg font-semibold text-lg shadow-lg shadow-[#93C5FD]/20 flex justify-center items-center gap-2 transition-all"
+      >
+        <span id="btn-text">Enviar</span>
+        <svg
+          id="spinner"
+          class="animate-spin h-5 w-5 text-white hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+        </svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- Toasts -->
+  <div id="toast-container" class="fixed top-4 right-4 space-y-2 z-50"></div>
+</section>
+<!-- Inicializar EmailJS -->
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+></script>
+
+<!-- Este script se encarga de la lógica del formulario en el lado del cliente -->
+<script type="module" define:vars={{ SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY }}>
+  import { initContactForm } from "../scripts/formulario.js";
+
+  initContactForm(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
+</script>
+
+<style>
+  @keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.97);
+  }
+}
+.animate-fadeInDown {
+  animation: fadeInDown 0.5s ease-out;
+}
+.animate-fadeOutUp {
+  animation: fadeOutUp 0.5s ease-in;
+}
+
+.glow-card {
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 0 25px rgba(147, 51, 234, 0.6),   /* purple-600 */
+    0 0 50px rgba(147, 197, 253, 0.4);  /* azul #93C5FD */
+  animation:
+    float 4s ease-in-out infinite,
+    glow 3s alternate infinite;
+}
+
+/* Halo externo tipo neón */
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -8px; /* expansión del halo */
+  border-radius: 1rem;
+  background: radial-gradient(
+    circle at center,
+    rgba(147, 51, 234, 0.5),   /* purple-600 */
+    rgba(147, 197, 253, 0.4),  /* azul */
+    transparent 70%
+  );
+  filter: blur(25px);
+  z-index: -1;
+  opacity: 0.8;
+  animation: haloPulse 6s infinite alternate;
+}
+
+@keyframes haloPulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow:
+      0 0 20px rgba(147, 51, 234, 0.5),
+      0 0 40px rgba(147, 197, 253, 0.3);
+  }
+  to {
+    box-shadow:
+      0 0 35px rgba(147, 51, 234, 0.8),
+      0 0 55px rgba(147, 197, 253, 0.6);
+  }
+}
+
+.cosmic-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(270deg,
+    rgba(147, 51, 234, 0.6),   /* purple-600 */
+    rgba(147, 197, 253, 0.5),  /* azul claro 93C5FD */
+    rgba(79, 70, 229, 0.6),    /* indigo */
+    rgba(147, 197, 253, 0.4)   /* azul translúcido */
+  );
+  background-size: 600% 600%;
+  animation: cosmicGradient 15s ease infinite;
+  filter: blur(80px);
+}
+
+@keyframes cosmicGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>

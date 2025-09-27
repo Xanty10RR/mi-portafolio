@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Fondo circular -->
+  <circle cx="150" cy="150" r="150" fill="black"></circle>
+
+  <!-- Letra D -->
+  <text x="115" y="190" text-anchor="middle" fill="white" font-size="170" font-family="'Didot', 'Bodoni MT', 'Times New Roman', serif" font-weight="normal" style="letter-spacing: -20px;">
+    D
+  </text>
+
+  <!-- Letra S que atraviesa la D -->
+  <text x="175" y="200" text-anchor="middle" fill="white" font-size="200" font-family="'Didot', 'Bodoni MT', 'Times New Roman', serif" font-weight="normal" style="letter-spacing: -25px;">
+    S
+  </text>
+</svg>

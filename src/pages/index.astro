@@ -1,0 +1,204 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import ContenedorSecciones from "../components/ContenedorSecciones.astro";
+import LinkedInIcon from "../Icons/LinkedIn.astro";
+import IconFile from "../components/IconFile.astro";
+import GitHub from "../Icons/GitHub.astro";
+import GmailIcon from "../Icons/Gmail.astro";
+import Experiencia from "../components/Experiencia.astro";
+import IconoExperiencia from "../Icons/IconoExperiencia.astro";
+import IconoProyectos from "../components/IconoProyectos.astro";
+import Proyectos from "../components/Proyectos.astro";
+import IconoSobreMi from "../Icons/IconoSobreMi.astro";
+import IconoHabilidades from "../Icons/IconoHabilidades.astro";
+import SobreMi from "../components/SobreMi.astro";
+import DescargarCV from "../Icons/Descargar-CV..astro";
+import HTML from "../Icons/HTML.astro";
+import CSS from "../Icons/CSS.astro";
+import JavaScript from "../Icons/JavaScript.astro";
+import PHP from "../Icons/PHP.astro";
+import TypeScript from "../Icons/Typescript.astro";
+import NodeJS from "../Icons/NodeJS.astro";
+import ExpressJS from "../Icons/ExpressJS.astro";
+import PostgreSQL from "../Icons/PostgreSQL.astro";
+import Bootstrap from "../Icons/Bootstrap.astro";
+import Tailwind from "../Icons/Tailwind.astro";
+import React from "../Icons/React.astro";
+import Electron from "../Icons/Electron.astro";
+import Vite from "../Icons/Vite.astro";
+import IconoAstro from "../Icons/IconoAstro.astro";
+import MySQL from "../Icons/MySQL.astro";
+import Git from "../Icons/Git.astro";
+import NPM from "../Icons/NPM.astro";
+import Markdown from "../Icons/Markdown.astro";
+import VSCode from "../Icons/VSCode.astro";
+import SublimeText from "../Icons/SublimeText.astro";
+import Netlify from "../Icons/Netlify.astro";
+import Vercel from "../Icons/Vercel.astro";
+import Contacto from "../components/Contacto.astro";
+import ContactoIcon from "../Icons/ContactoIcon.astro";
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout
+  title="Portafolio de Santiago - Desarrollador y programador Web Full Stack con 6 meses de experiencia"
+  description="Si buscas a alguien comprometido, creativo y con pasión por la tecnología, ¡soy la persona indicada para impulsar tus proyectos! Mi enfoque está en entregar soluciones eficientes y modernas que realmente aporten valor a tu negocio. ¡Trabajemos juntos!"
+>
+  <>
+    <ContenedorSecciones>
+      <img
+        src="/foto-animada.webp"
+        alt="Foto perfil"
+        class="flex size-20 object-cover rounded-full mb-4"
+      />
+      <h1
+        class="pt-4 mx-0 text-[#93C5FD] text-2xl md:text-4xl lg:text-5xl font-bold flex lg:flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hola, soy Santiago
+        <span
+          class="text-end ml-0 small-4 flex items-center -mt-2 md:mt-0 lg:mt-0 gap-2 flex-col sm:flex-row"
+        >
+          <a
+            href="/public/HOJA DE VIDA - Daniel Santiago Rosero Cajamarca.pdf"
+            download
+            class="flex justify-center items-center hover:scale-105 transition"
+          >
+            <Badge>
+              <DescargarCV class="size-4" />
+              Descargar CV  
+            </Badge>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/"
+            target="_blank"
+            rel="noopener"
+            class="flex justify-center items-center hover:scale-105 transition"
+          >
+            <Badge>
+              <IconoExperiencia class="size-4" />
+              Disponible para trabajo
+            </Badge>
+          </a>
+        </span>
+      </h1>
+      <h2 class="text-xl pt-2 lg:text-2xl text-pretty max-w-[700px]">
+        +6 meses de experiencia laboral. Desarrollador Web Full Stack. De
+        Colombia. Especializado en crear paginas web unicas y escalables y
+        sistematizar procesos. Me encanta aprender y enfrentar nuevos desafíos.
+      </h2>
+
+      <nav class="flex py-2 gap-4 mt-8 flex-grap justify-center">
+        <IconFile
+          href="https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/"
+        >
+          <LinkedInIcon class="size-4 md:size-5 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]" />
+          LinkedIn
+        </IconFile>
+        <IconFile href="https://github.com/Xanty10RR">
+          <GitHub class="size-4 md:size-5 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]" />
+          GitHub
+        </IconFile>
+        <IconFile href="mailto:santiagocajamarca.37@gmail.com">
+          <GmailIcon class="size-4 md:size-5 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]" />
+          santiagocajamarca.37@gmail.com
+        </IconFile>
+      </nav>
+    </ContenedorSecciones>
+
+    <ContenedorSecciones id="experiencia">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <IconoExperiencia class="size-7" />
+        Experiencia Laboral
+      </h2>
+      <Experiencia />
+    </ContenedorSecciones>
+
+    <ContenedorSecciones id="proyectos">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <IconoProyectos class="size-7" />
+        Proyectos
+      </h2>
+      <Proyectos />
+    </ContenedorSecciones>
+
+    <ContenedorSecciones class="w-full" id="habilidades">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <IconoHabilidades class="size-7" />
+        Habilidades
+      </h2>
+      <div
+        class="carousel overflow-hidden whitespace-nowrap flex items-center relative"
+      >
+        <div class="imagenes">
+          <!-- Grupo de iconos original -->
+          <HTML />
+          <CSS />
+          <JavaScript />
+          <TypeScript />
+          <Tailwind />
+          <Bootstrap />
+          <React />
+          <Electron />
+          <IconoAstro />
+          <Vite />
+          <PHP />
+          <PostgreSQL />
+          <MySQL />
+          <NodeJS />
+          <ExpressJS />
+          <Git />
+          <GitHub />
+          <NPM />
+          <Markdown />
+          <VSCode />
+          <SublimeText />
+          <Netlify />
+          <Vercel />
+          <!-- Grupo de iconos duplicado para el efecto infinito -->
+          <HTML />
+          <CSS />
+          <JavaScript />
+          <TypeScript />
+          <Tailwind />
+          <Bootstrap />
+          <React />
+          <Electron />
+          <IconoAstro />
+          <Vite />
+          <PHP />
+          <PostgreSQL />
+          <MySQL />
+          <NodeJS />
+          <ExpressJS />
+          <Git />
+          <GitHub />
+          <NPM />
+          <Markdown />
+          <VSCode />
+          <SublimeText />
+          <Netlify />
+          <Vercel />
+        </div>
+      </div>
+    </ContenedorSecciones>
+
+    <ContenedorSecciones id="sobre-mi">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <IconoSobreMi class="size 7" />
+        Sobre mí
+      </h2>
+      <SobreMi />
+    </ContenedorSecciones>
+
+    <ContenedorSecciones id="contacto">
+      <h2 class="pb-9 text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <ContactoIcon class="size-7" />
+        Contáctame
+      </h2>
+      <Contacto />
+    </ContenedorSecciones>
+  </>
+</Layout>

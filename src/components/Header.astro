@@ -1,0 +1,70 @@
+<header class="fixed w-full bg-black/70 backdrop-blur-lg z-50">
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-6"
+  >
+    <a href="/#top" class="flex items-center">
+      <span class="text-2xl font-semibold text-white">Bienvenid@ a mi Portafolio</span>
+    </a>
+    <button
+      id="menu-btn"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600"
+      aria-controls="navbar-menu"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Abrir menú principal</span>
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 17 14"
+        ><path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"></path></svg
+      >
+    </button>
+
+    <nav class="hidden w-full md:block md:w-auto" id="navbar-menu">
+      <ul
+        class="font-medium flex flex-col items-center p-4 md:p-0 mt-3 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:gap-y-0 gap-y-2.5"
+      >
+        <li><a class="navegacion" href="/#top">Inicio</a></li>
+        <li><a class="navegacion" href="/#experiencia">Experiencia</a></li>
+        <li><a class="navegacion" href="/#proyectos">Proyectos</a></li>
+        <li><a class="navegacion" href="/#habilidades">Habilidades</a></li>
+        <li><a class="navegacion" href="/#sobre-mi">Sobre mí</a></li>
+        <li><a class="navegacion" href="/#contacto">Contáctame</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="barra" class="fixed top-0 left-0"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-btn");
+    const navbarMenu = document.getElementById("navbar-menu");
+
+    if (menuBtn && navbarMenu) {
+      const navLinks = navbarMenu.querySelectorAll("a");
+
+      // Función para abrir/cerrar el menú
+      menuBtn.addEventListener("click", () => {
+        navbarMenu.classList.toggle("hidden");
+        const isExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+        menuBtn.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+      });
+
+      // Función para cerrar el menú al hacer clic en un enlace (en móvil)
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          // Solo cierra si el menú está visible (en vista móvil)
+          if (!navbarMenu.classList.contains("hidden")) {
+            navbarMenu.classList.add("hidden");
+            menuBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+    }
+  });
+</script>
