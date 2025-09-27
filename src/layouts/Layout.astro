@@ -9,6 +9,18 @@ interface Props {
 }
 
 const { description, title } = Astro.props;
+
+// 🔑 Leemos las variables de entorno en el servidor
+const firebaseConfig = {
+  apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
+  authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
+  measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID
+};
+
 ---
 
 <!doctype html>
@@ -41,22 +53,12 @@ const { description, title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <!-- Firebase App (obligatorio) -->
-    <script type="module" is:inline>
+    <script define:vars={{ firebaseConfig }} type="module" is:inline>
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyCCMFgCXgavf9mGYKgm65qBaS_d-Za38n4",
-        authDomain: "portafolio-xanty10rr.firebaseapp.com",
-        projectId: "portafolio-xanty10rr",
-        storageBucket: "portafolio-xanty10rr.firebasestorage.app",
-        messagingSenderId: "888404637209",
-        appId: "1:888404637209:web:935a59edd82b20e3519c88",
-        measurementId: "G-G983GGJYN1"
-      };
-
       const app = initializeApp(firebaseConfig);
-      window.db = getFirestore(app); // 👈 guardamos db en window para usarlo en Footer.astro
+      window.db = getFirestore(app); // Guardamos db en window para usarlo en Footer.astro
     </script>
 
   </head>
