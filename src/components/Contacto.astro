@@ -1,8 +1,7 @@
 ---
-// Las variables para el formulario de contacto. Se pasarán al script del cliente.
-const SERVICE_ID = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
 ---
 
 <section class="relative max-w-lg mx-auto">
@@ -11,69 +10,38 @@ const PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
     class="p-8 rounded-2xl bg-black/40 backdrop-blur-md border border-purple-500/20 shadow-xl text-white glow-card relative z-10"
   >
     <h2
-  class="text-xl lg:text-2xl font-bold mb-6 text-center 
-         bg-gradient-to-r from-purple-400 via-indigo-300 to-blue-300 
-         bg-clip-text text-transparent drop-shadow-lg">
-  ¡Envíame un mensaje!
-</h2>
+      class="text-xl lg:text-2xl font-bold mb-6 text-center 
+             bg-gradient-to-r from-purple-400 via-indigo-300 to-blue-300 
+             bg-clip-text text-transparent drop-shadow-lg">
+      ¡Envíame un mensaje!
+    </h2>
 
+    <form
+      id="contact-form"
+      class="flex flex-col gap-4"
+      data-service-id={serviceId}
+      data-template-id={templateId}
+      data-public-key={publicKey}
+    >
+      <input type="text" name="name" placeholder="Tu nombre" required
+        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"/>
 
-    <form id="contact-form" class="flex flex-col gap-4">
-      <input
-        type="text"
-        name="name"
-        placeholder="Tu nombre"
-        required
-        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"
-      />
+      <input type="email" name="email" placeholder="Tu correo" required
+        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"/>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Tu correo"
-        required
-        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"
-      />
+      <input type="text" name="title" placeholder="Asunto" required
+        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"/>
 
-      <input
-        type="text"
-        name="title"
-        placeholder="Asunto"
-        required
-        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"
-      />
+      <textarea name="message" placeholder="Escribe tu mensaje..." required rows="4"
+        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"></textarea>
 
-      <textarea
-        name="message"
-        placeholder="Escribe tu mensaje..."
-        required
-        rows="4"
-        class="p-3 rounded-lg bg-black/60 border border-[#361b7e] focus:border-[#93C5FD] focus:ring-2 focus:ring-purple-500/50 outline-none transition text-white placeholder-gray-300"
-      ></textarea>
-
-      <button
-        id="submit-btn"
-        type="submit"
-        class="relative bg-gradient-to-r from-[#93C5FD] to-purple-800 hover:from-[#93C5FD]/90 hover:to-purple-900 p-3 rounded-lg font-semibold text-lg shadow-lg shadow-[#93C5FD]/20 flex justify-center items-center gap-2 transition-all"
-      >
+      <button id="submit-btn" type="submit"
+        class="relative bg-gradient-to-r from-[#93C5FD] to-purple-800 hover:from-[#93C5FD]/90 hover:to-purple-900 p-3 rounded-lg font-semibold text-lg shadow-lg shadow-[#93C5FD]/20 flex justify-center items-center gap-2 transition-all">
         <span id="btn-text">Enviar</span>
-        <svg
-          id="spinner"
-          class="animate-spin h-5 w-5 text-white hidden"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            class="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            stroke-width="4"></circle>
-          <path
-            class="opacity-75"
-            fill="currentColor"
+        <svg id="spinner" class="animate-spin h-5 w-5 text-white hidden"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor"
             d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
         </svg>
       </button>
@@ -83,12 +51,9 @@ const PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
   <!-- Toasts -->
   <div id="toast-container" class="fixed top-4 right-4 space-y-2 z-50"></div>
 </section>
-<!-- Este script se encarga de la lógica del formulario en el lado del cliente -->
-<script type="module" define:vars={{ SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY }}>
-  import { initContactForm } from "/scripts/formulario.js";
 
-  initContactForm(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
-</script>
+<!-- Importamos solo el cliente -->
+<script src="/formulario.js" type="module"></script>
 
 <style>
   @keyframes fadeInDown {

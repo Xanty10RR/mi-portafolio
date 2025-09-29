@@ -41,6 +41,8 @@
 <div id="barra" class="fixed top-0 left-0"></div>
 
 <script>
+  // Import vacío para forzar el procesamiento del script por parte de Astro.
+  import.meta; 
   document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("menu-btn");
     const navbarMenu = document.getElementById("navbar-menu");

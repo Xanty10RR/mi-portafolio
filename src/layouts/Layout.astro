@@ -52,15 +52,30 @@ const firebaseConfig = {
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <!-- Firebase App (obligatorio) -->
-    <script define:vars={{ firebaseConfig }} type="module" is:inline>
+    <!-- Firebase -->
+    <script type="module" is:inline>
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-      const app = initializeApp(firebaseConfig);
-      window.db = getFirestore(app); // Guardamos db en window para usarlo en Footer.astro
-    </script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCCMFgCXgavf9mGYKgm65qBaS_d-Za38n4",
+        authDomain: "portafolio-xanty10rr.firebaseapp.com",
+        projectId: "portafolio-xanty10rr",
+        storageBucket: "portafolio-xanty10rr.firebasestorage.app",
+        messagingSenderId: "888404637209",
+        appId: "1:888404637209:web:935a59edd82b20e3519c88",
+        measurementId: "G-G983GGJYN1"
+      };
 
+      const app = initializeApp(firebaseConfig);
+      window.db = getFirestore(app); // 👈 disponible globalmente
+    </script>
+    <!-- EmailJS SDK (deferido para no bloquear) -->
+    <script
+      defer
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
   </head>
   <body class="relative min-h-screen">
     <div
@@ -70,14 +85,13 @@ const firebaseConfig = {
     <Header />
     <!-- Espaciador para el header fijo -->
     <div class="h-20"></div>
-    <!-- Contenido de la página -->
+
     <main class="px-4 flex-grow">
       <slot />
     </main>
     <Footer />
     <!-- Flowbite JS -->
     <script
-      is:inline
       src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
     ></script>
 
@@ -177,7 +191,6 @@ const firebaseConfig = {
     cursor: pointer;
   }
 
-  /* animación infinita de derecha a izquierda */
   @keyframes scroll {
     from {
       transform: translateX(0);
@@ -192,9 +205,9 @@ const firebaseConfig = {
     height: 7px;
     background: linear-gradient(
       90deg,
-      #8ce0f8,
-      /* azul fluorescente */ #5147ff,
-      /* azul marino */ #361b7e /* morado profundo */
+      #8ce0f8, /* azul fluorescente */ 
+      #5147ff, /* azul marino */ 
+      #361b7e /* morado profundo */
     );
     z-index: 9999;
     animation: alternate 2s infinite;
