@@ -68,7 +68,7 @@ import ContactoIcon from "../Icons/ContactoIcon.astro";
           >
             <Badge>
               <DescargarCV class="size-4" />
-              Descargar CV  
+              Descargar CV
             </Badge>
           </a>
 
@@ -91,22 +91,34 @@ import ContactoIcon from "../Icons/ContactoIcon.astro";
         sistematizar procesos. Me encanta aprender y enfrentar nuevos desafíos.
       </h2>
 
-      <nav class="flex py-2 gap-4 mt-8 flex-grap justify-center">
-        <IconFile
-          href="https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/"
-        >
-          <LinkedInIcon class="size-4 md:size-5 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]" />
-          LinkedIn
-        </IconFile>
-        <IconFile href="https://github.com/Xanty10RR">
-          <GitHub class="size-4 md:size-5 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]" />
-          GitHub
-        </IconFile>
-        <IconFile href="mailto:santiagocajamarca.37@gmail.com">
-          <GmailIcon class="size-4 md:size-5 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]" />
-          santiagocajamarca.37@gmail.com
-        </IconFile>
-      </nav>
+      <nav
+  class="grid gap-3 justify-items-center mt-8 sm:grid-cols-1 sm:justify-items-center md:grid-cols-1 md:flex md:justify-center md:gap-4 xs:grid-cols-1 xs:justify-items-center"
+>
+  <IconFile
+    href="https://github.com/Xanty10RR"
+    class="w-fit flex items-center gap-1 px-2 py-0.5 rounded-full border border-white/20 transition-transform duration-200 ease-in-out hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]"
+  >
+    <GitHub class="size-4 md:size-5" />
+    GitHub
+  </IconFile>
+
+  <IconFile
+    href="https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/"
+    class="w-fit flex items-center gap-1 px-2 py-0.5 rounded-full border border-white/20 transition-transform duration-200 ease-in-out hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]"
+  >
+    <LinkedInIcon class="size-4 md:size-5" />
+    LinkedIn
+  </IconFile>
+
+  <IconFile
+    href="mailto:santiagocajamarca.37@gmail.com"
+    class="w-fit flex items-center gap-1 px-2 py-0.5 rounded-full border border-white/20 transition-transform duration-200 ease-in-out hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(192,132,252,0.9)]"
+  >
+    <GmailIcon class="size-4 md:size-5" />
+    santiagocajamarca.37@gmail.com
+  </IconFile>
+</nav>
+
     </ContenedorSecciones>
 
     <ContenedorSecciones id="experiencia">
