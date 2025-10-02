@@ -55,21 +55,10 @@ import ContactoIcon from "../Icons/ContactoIcon.astro";
         class="flex size-20 object-cover rounded-full mb-4"
       />
       <h1
-  class="pt-4 mx-0 text-[#93C5FD] text-2xl md:text-4xl lg:text-5xl font-bold flex items-start sm:items-center gap-3 pb-6 lg:pb-10"
+  class="pt-4 mx-0 text-[#93C5FD] text-3xl md:text-4xl lg:text-5xl font-bold flex items-start sm:items-center gap-3 pb-6 lg:pb-10"
 >
   Hola, soy Santiago
-  <span class="flex flex-col sm:flex-row gap-2">
-    <a
-      href="/public/HOJA DE VIDA - Daniel Santiago Rosero Cajamarca.pdf"
-      download
-      class="flex justify-center items-center hover:scale-105 transition"
-    >
-      <Badge>
-        <DescargarCV class="size-4" />
-        Descargar CV
-      </Badge>
-    </a>
-
+  <span class="flex flex-col sm:flex-row gap-2 justify-end">
     <a
       href="https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/"
       target="_blank"
@@ -77,8 +66,18 @@ import ContactoIcon from "../Icons/ContactoIcon.astro";
       class="flex justify-center items-center hover:scale-105 transition"
     >
       <Badge>
-        <IconoExperiencia class="size-4" />
-        Disponible para trabajo
+        <IconoExperiencia class="size-4 mx-0.5" />
+        Contrátame
+      </Badge>
+    </a>
+    <a
+      href="/public/HOJA DE VIDA - Daniel Santiago Rosero Cajamarca.pdf"
+      download
+      class="flex justify-center items-center hover:scale-105 transition"
+    >
+      <Badge>
+        <DescargarCV class="size-4 mx-0.5" />
+        Descargar CV
       </Badge>
     </a>
   </span>
