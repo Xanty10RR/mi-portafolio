@@ -18,9 +18,8 @@ const firebaseConfig = {
   storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
-  measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID
+  measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
-
 ---
 
 <!doctype html>
@@ -64,7 +63,7 @@ const firebaseConfig = {
         storageBucket: "portafolio-xanty10rr.firebasestorage.app",
         messagingSenderId: "888404637209",
         appId: "1:888404637209:web:935a59edd82b20e3519c88",
-        measurementId: "G-G983GGJYN1"
+        measurementId: "G-G983GGJYN1",
       };
 
       const app = initializeApp(firebaseConfig);
@@ -101,7 +100,8 @@ const firebaseConfig = {
       window.addEventListener("scroll", () => {
         const barra = document.getElementById("barra");
         if (!barra) return;
-        const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollTotal =
+          document.documentElement.scrollHeight - window.innerHeight;
         const scrollActual = window.scrollY;
         const porcentaje = (scrollActual / scrollTotal) * 100;
         barra.style.width = `${porcentaje}%`;
@@ -117,14 +117,15 @@ const firebaseConfig = {
   }
 
   /* src/styles/global.css */
-@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
 
   html {
     font-family: "Onest Variable", system-ui, sans-serif;
     scroll-behavior: smooth;
+    leading-relaxed: 1.625;
   }
 
-  body {    
+  body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -165,9 +166,9 @@ const firebaseConfig = {
 
   .imagenes {
     margin: 28px;
-    display: flex;
+    display: inline-flex; /* Cambiado a inline-flex para que el ancho se ajuste al contenido */
     gap: 4rem;
-    animation: scroll 50s linear infinite;
+    animation: scroll var(--scroll-speed, 70s) linear infinite;
     will-change: transform; /* Optimiza la animación para que sea más fluida */
   }
 
@@ -207,7 +208,7 @@ const firebaseConfig = {
     background: linear-gradient(
       90deg,
       #8ce0f8, /* azul fluorescente */ 
-      #5147ff, /* azul marino */ 
+      #5147ff, /* azul marino */
       #361b7e /* morado profundo */
     );
     z-index: 9999;
