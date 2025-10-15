@@ -55,17 +55,7 @@ const firebaseConfig = {
     <script type="module" is:inline>
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyCCMFgCXgavf9mGYKgm65qBaS_d-Za38n4",
-        authDomain: "portafolio-xanty10rr.firebaseapp.com",
-        projectId: "portafolio-xanty10rr",
-        storageBucket: "portafolio-xanty10rr.firebasestorage.app",
-        messagingSenderId: "888404637209",
-        appId: "1:888404637209:web:935a59edd82b20e3519c88",
-        measurementId: "G-G983GGJYN1",
-      };
-
+      const firebaseConfig = JSON.parse('{JSON.stringify(firebaseConfig)}');
       const app = initializeApp(firebaseConfig);
       window.db = getFirestore(app); // 👈 disponible globalmente
     </script>
