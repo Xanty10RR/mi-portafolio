@@ -55,7 +55,7 @@ const firebaseConfig = {
     <script type="module" is:inline>
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-      const firebaseConfig = JSON.parse('{JSON.stringify(firebaseConfig)}');
+      const firebaseConfig = JSON.parse(window.firebaseConfig);
       const app = initializeApp(firebaseConfig);
       window.db = getFirestore(app); // 👈 disponible globalmente
     </script>
