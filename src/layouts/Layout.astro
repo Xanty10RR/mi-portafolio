@@ -51,23 +51,34 @@ const firebaseConfig = {
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
     <!-- Firebase para los likes :) -->
-    <script >
-      window.firebaseConfig = JSON.stringify({
-        apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
-        authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
-        projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
-      });
-    </script>
+<script is:inline>
+  window.firebaseConfig = JSON.stringify({
+    apiKey: "{import.meta.env.PUBLIC_FIREBASE_API_KEY}",
+    authDomain: "{import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN}",
+    projectId: "{import.meta.env.PUBLIC_FIREBASE_PROJECT_ID}",
+    storageBucket: "{import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET}",
+    messagingSenderId: "{import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID}",
+    appId: "{import.meta.env.PUBLIC_FIREBASE_APP_ID}",
+    measurementId: "{import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID}",
+  });
+</script>
 
-    <script type="module" is:inline>
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+<script type="module" is:inline>
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-      const firebaseConfig = JSON.parse(window.firebaseConfig);
-      const app = initializeApp(firebaseConfig);
-      window.db = getFirestore(app);
-    </script>
+  try {
+    const firebaseConfig = JSON.parse(window.firebaseConfig);
+    const app = initializeApp(firebaseConfig);
+    window.db = getFirestore(app);
+    console.log("✅ Firebase conectado correctamente");
+  } catch (e) {
+    console.error("❌ Error inicializando Firebase:", e, window.firebaseConfig);
+  }
+</script>
+
 
     <!-- EmailJS SDK (deferido para no bloquear) -->
     <script
