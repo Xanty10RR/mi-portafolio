@@ -51,14 +51,24 @@ const firebaseConfig = {
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <!-- Firebase -->
+    <!-- Firebase para los likes :) -->
+    <script >
+      window.firebaseConfig = JSON.stringify({
+        apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
+        authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
+        projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
+      });
+    </script>
+
     <script type="module" is:inline>
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
       const firebaseConfig = JSON.parse(window.firebaseConfig);
       const app = initializeApp(firebaseConfig);
-      window.db = getFirestore(app); // 👈 disponible globalmente
+      window.db = getFirestore(app);
     </script>
+
     <!-- EmailJS SDK (deferido para no bloquear) -->
     <script
       defer
@@ -138,7 +148,7 @@ const firebaseConfig = {
   }
 
   p {
-    line-height: 1.620;
+    line-height: 1.62;
     text-wrap: pretty;
   }
 
@@ -202,9 +212,9 @@ const firebaseConfig = {
     height: 7px;
     background: linear-gradient(
       90deg,
-      #8ce0f8, /* azul fluorescente */ 
-      #5147ff, /* azul marino */
-      #361b7e /* morado profundo */
+      #8ce0f8,
+      /* azul fluorescente */ #5147ff,
+      /* azul marino */ #361b7e /* morado profundo */
     );
     z-index: 9999;
     animation: alternate 2s infinite;
