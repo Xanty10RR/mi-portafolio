@@ -60,6 +60,5 @@ Abre [http://localhost:4321](http://localhost:4321) en tu navegador para ver el 
 
 ¡Me encantaría conectar contigo!
 
-*   **LinkedIn:** [Daniel Santiago Rosero](https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/)
-*   **GitHub:** [@Xanty10RR](https://github.com/Xanty10RR)
-*   **Email:** [santiagocajamarca.37@gmail.com](mailto:santiagocajamarca.37@gmail.com)
+- 👨🏻‍💻[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/)
+- 📧 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:santiagocajamarca.37@gmail.com)
