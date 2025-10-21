@@ -4,7 +4,7 @@
 
 **[➡️ Ver el sitio en vivo](https://santiagorc-portfolio.vercel.app/)** <!-- Reemplaza con la URL de tu sitio desplegado -->
 
-![Captura de pantalla del portafolio](./public/og-image.png)
+![Captura de pantalla del portafolio](./public/captura-de-mi-portafolio.png)
 
 ---
 
