@@ -4,8 +4,9 @@
 
 **[➡️ Ver el sitio en vivo](https://santiagorc-portfolio.vercel.app/)** <!-- Reemplaza con la URL de tu sitio desplegado -->
 
-![Captura de pantalla del portafolio](./public/captura-de-mi-portafolio.webp)
-
+<p align="center">
+  <img src="./public/captura-de-mi-portafolio.webp" alt="Captura de pantalla del portafolio" width="600">
+</p>
 ---
 
 ## 🚀 Características Principales
