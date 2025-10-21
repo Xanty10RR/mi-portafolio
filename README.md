@@ -1,65 +1,67 @@
- # Portafolio Personal - Santiago Rosero
+# Personal Portfolio - Santiago Rosero
 
-¡Bienvenid@ al repositorio de mi portafolio personal! Este proyecto fue creado para mostrar mis habilidades, experiencia y los proyectos en los que he trabajado como desarrollador web Full Stack.
+Welcome to the repository of my personal portfolio!  
+This project was created to showcase my skills, experience, and the projects I’ve worked on as a Full Stack Web Developer.
 
-**[➡️ Ver el sitio en vivo](https://santiagorc-portfolio.vercel.app/)** <!-- Reemplaza con la URL de tu sitio desplegado -->
+**[➡️ View Live Site](https://santiagorc-portfolio.vercel.app/)** <!-- Replace with your deployed site URL -->
 
 <p align="center">
-  <img src="./public/captura-de-mi-portafolio.webp" alt="Captura de pantalla del portafolio" width="800">
+  <img src="./public/captura-de-mi-portafolio.webp" alt="Portfolio screenshot" width="800">
 </p>
----
-
-## 🚀 Características Principales
-
-*   **Diseño Moderno y Responsivo:** Totalmente adaptable a dispositivos móviles, tablets y escritorio, construido con Tailwind CSS.
-*   **Secciones Clave:** Incluye secciones de Experiencia, Proyectos, Habilidades, Sobre mí y Contacto.
-*   **Proyectos Detallados:** Cada proyecto se presenta con una descripción, tecnologías utilizadas y enlaces al código fuente en GitHub y al sitio en vivo (cuando aplica).
-*   **Carrusel de Habilidades:** Un carrusel infinito y animado para mostrar las tecnologías que domino.
-*   **Tema Oscuro:** Interfaz elegante con un tema oscuro predominante y gradientes sutiles.
-*   **Interactividad:** Efectos de hover en la navegación y el carrusel, y una barra de progreso que sigue el scroll del usuario.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🚀 Main Features
 
-*   **Framework:** [Astro](https://astro.build/) - Para un rendimiento web ultrarrápido.
-*   **Estilos:** [Tailwind CSS](https://tailwindcss.com/) - Para un diseño rápido y personalizable.
-*   **Lenguajes:** HTML, CSS, JavaScript.
-*   **Despliegue:** Optimizado para plataformas como Vercel o Netlify.
+* **Modern & Responsive Design:** Fully adaptable to mobile devices, tablets, and desktops, built with Tailwind CSS.  
+* **Key Sections:** Includes sections for Experience, Projects, Skills, About Me, and Contact.  
+* **Detailed Projects:** Each project includes a description, technologies used, and links to both the GitHub source code and the live site (when applicable).  
+* **Skills Carousel:** An infinite, animated carousel displaying the technologies I master.  
+* **Dark Theme:** Elegant dark interface with smooth gradients.  
+* **Interactivity:** Hover effects in navigation and carousel, plus a progress bar that follows the user’s scroll.  
 
 ---
 
-## ⚙️ Cómo Empezar
+## 🛠️ Technologies Used
 
-Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
+* **Framework:** [Astro](https://astro.build/) – For ultra-fast web performance.  
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/) – For rapid and customizable UI design.  
+* **Languages:** HTML, CSS, JavaScript.  
+* **Deployment:** Optimized for platforms such as Vercel or Netlify.  
 
-1.  **Clona el repositorio:**
-    ```bash
-    git clone https://github.com/Xanty10RR/tu-repositorio.git
-    ```
+---
 
-2.  **Navega al directorio del proyecto:**
-    ```bash
-    cd tu-repositorio
-    ```
+## ⚙️ Getting Started
 
-3.  **Instala las dependencias:**
-    ```bash
-    npm install
-    ```
+To run this project locally, follow these steps:
 
-4.  **Inicia el servidor de desarrollo:**
-    ```bash
-    npm run dev
-    ```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Xanty10RR/your-repository.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd your-repository
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
 Abre [http://localhost:4321](http://localhost:4321) en tu navegador para ver el resultado.
 
 ---
 
-## 📬 Contacto
+## 📬 Contact Me
 
-¡Me encantaría conectar contigo!
+I’d love to connect with you!
 
 - 👨🏻‍💻[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/)
 - 📧 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:santiagocajamarca.37@gmail.com)
