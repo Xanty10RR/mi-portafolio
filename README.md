@@ -2,7 +2,7 @@
 
 ¡Bienvenid@ al repositorio de mi portafolio personal! Este proyecto fue creado para mostrar mis habilidades, experiencia y los proyectos en los que he trabajado como desarrollador web Full Stack.
 
-**[➡️ Ver el sitio en vivo](santiagorc-portfolio.vercel.app/)** <!-- Reemplaza con la URL de tu sitio desplegado -->
+**[➡️ Ver el sitio en vivo](https://santiagorc-portfolio.vercel.app/)** <!-- Reemplaza con la URL de tu sitio desplegado -->
 
 ![Captura de pantalla del portafolio](./public/og-image.png)
 
