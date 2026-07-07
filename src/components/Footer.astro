@@ -9,19 +9,19 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="mt-auto rounded-lg shadow-sm bg-transparent backdrop-blur-lg w-full mx-auto"
+  class="w-full rounded-lg shadow-lg bg-transparent backdrop-blur-lg mx-auto px-6"
 >
   <div class="w-full max-w-screen-xl mx-auto px-4 py-6 md:py-10">
     <div
       class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
     >
       <!-- Logo + Título + Like -->
-      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+      <div class="w-full flex flex-col sm:flex-row sm:items-center gap-3">
         <button
           id="likeButton"
-          class="flex items-center gap-2 text-pink-500 hover:text-pink-400 transition text-lg font-semibold"
+          class="flex items-center py-2 gap-2 text-pink-500 hover:text-pink-400 transition text-lg font-semibold"
         >
-          LIKES ❤️ <span id="likeCount">0</span>
+          LIKES ❤️ <span id="likeCount">0</span>center
         </button>
 
         <p
@@ -34,9 +34,11 @@ const currentYear = new Date().getFullYear();
           ❤️ Le diste "Me gusta" al portafolio de Santiago
         </p>
       </div>
+    </div>
 
+    <div class="w-full flex p-5 md:pb-8 lg:pb-8 justify-end mx-auto">
       <ul
-        class="flex flex-wrap justify-center gap-5 md:gap-6 text-sm font-medium text-white/90"
+        class="flex flex-wrap justify-center gap-5 md:gap-8 text-sm font-medium text-white/90"
       >
         <li>
           <a href="/#experiencia" class="hover:text-sky-300 transition"
@@ -78,10 +80,10 @@ const currentYear = new Date().getFullYear();
 
     <!-- Línea divisoria -->
     <hr
-      class="my-6 border-gray-500 sm:mx-auto dark:border-[#6633EE] lg:my-8 shadow-[0_0_10px_rgba(147,197,253,0.7)]"
+      class="mb-7 border-gray-500 sm:mx-auto dark:border-[#6633EE] lg:mb-10 shadow-[0_0_10px_rgba(147,197,253,0.7)]"
     />
 
-    <div class="flex justify-center gap-6 mb-6">
+    <div class="flex justify-center gap-6 mb-5 md:mb-8 lg:mb-8">
       <a
         href="https://www.linkedin.com/in/daniel-santiago-rosero-4420a91b0/"
         target="_blank"
