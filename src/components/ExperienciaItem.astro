@@ -24,6 +24,6 @@ const { fecha, cargo, titulo, descripcion } = Astro.props;
 </h4>
 <p class="text-base text-white mb-4">
   {descripcion.split('\n').map((paragraph => (
-    <p class="text-pretty mb-3 text-lg">{paragraph}</p>
+    <p class="text-pretty mb-3 text-md md:text-lg lg:text-lg">{paragraph}</p>
   )))}
 </p>
