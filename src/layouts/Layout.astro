@@ -171,31 +171,68 @@ const firebaseConfig = {
 
   .imagenes {
     margin: 28px;
-    display: inline-flex; /* Cambiado a inline-flex para que el ancho se ajuste al contenido */
+    display: inline-flex; /* Inline-flex para que el ancho se ajuste al contenido */
     gap: 4rem;
     animation: scroll var(--scroll-speed, 75s) linear infinite;
     will-change: transform; /* Optimiza la animación para que sea más fluida */
   }
 
-  .carousel .imagenes > * {
-    flex: 0 0 auto; /* imagenes de carousel no se encogen ni se estiran */
-    width: 80px; /* tamaño uniforme */
+  .carousel .imagenes .habilidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 80px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transfor 0.3s ease;
+  }
+
+  .carousel .imagenes .habilidad svg {
+    width: 80px;
     height: 80px;
     object-fit: contain;
-    transition:
-      transform 0.3s ease,
-      filter 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  
+  }
+
+  .carousel .imagenes .habilidad span {
+    font-size: 0.860rem;
+    color: white;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
   }
 
   .carousel:hover .imagenes {
     animation-play-state: paused;
   }
 
-  .carousel .imagenes > *:hover {
-    transform: scale(1.2) rotate(-370deg);
+  .habilidad:hover {
+    filter:  drop-shadow(0 0 10px rgb(32, 133, 255));
+  }
+  
+  /* Hover para computador */
+  .carousel .imagenes .habilidad:hover svg {
+    transform: scale(1.2) rotate(-360deg);
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
-    flex-shrink: 0;
-    cursor: pointer;
+  }
+
+  .carousel .imagenes .habilidad:hover span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Para celular que se quede visible al tocar*/
+  .carousel .imagenes .habilidad:active span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Al tocar el carrusel en celular se queda quieto */
+  .carousel .imagenes .habilidad {
+    touch-action: manipulation;
   }
 
   @keyframes scroll {
