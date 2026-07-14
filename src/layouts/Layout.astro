@@ -44,10 +44,11 @@ const firebaseConfig = {
     <meta property="og:image" content={new URL("/og-image.png", Astro.url)} />
 
     <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" href="../public/images/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -148,7 +149,7 @@ const firebaseConfig = {
   }
 
   p {
-    line-height: 1.620;
+    line-height: 1.62;
     text-wrap: pretty;
   }
 
@@ -192,16 +193,19 @@ const firebaseConfig = {
     width: 80px;
     height: 80px;
     object-fit: contain;
-    transition: transform 0.3s ease, filter 0.3s ease;
-  
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
   }
 
   .carousel .imagenes .habilidad span {
-    font-size: 0.860rem;
+    font-size: 0.86rem;
     color: rgba(255, 255, 255, 0.853);
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
     pointer-events: none;
   }
 
@@ -210,9 +214,9 @@ const firebaseConfig = {
   }
 
   .habilidad:hover {
-    filter:  drop-shadow(0 0 5px rgb(38, 134, 252));
+    filter: drop-shadow(0 0 5px rgb(38, 134, 252));
   }
-  
+
   /* Hover para computador */
   .carousel .imagenes .habilidad:hover svg {
     transform: scale(1.2) rotate(-360deg);
@@ -249,9 +253,9 @@ const firebaseConfig = {
     height: 9px;
     background: linear-gradient(
       90deg,
-      #8ce0f8, /* azul fluorescente */ 
-      #5147ff, /* azul marino */
-      #361b7e /* morado profundo */
+      #8ce0f8,
+      /* azul fluorescente */ #5147ff,
+      /* azul marino */ #361b7e /* morado profundo */
     );
     z-index: 9999;
     animation: alternate 2s infinite;
