@@ -62,16 +62,26 @@ const firebaseConfig = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- Firebase -->
+    <!-- Firebase (Cargado de forma segura y compatible con todos los navegadores) -->
     <script type="module" is:inline define:vars={{ firebaseConfig }}>
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+      import {
+        initializeFirestore,
+        persistentLocalCache,
+        persistentMultipleTabManager,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-      // define:vars, la variable "firebaseConfig" ya está disponible aquí dentro
-
+      // Inicializamos la app normalmente
       const app = initializeApp(firebaseConfig);
-      window.db = getFirestore(app); // 👈 disponible globalmente
+
+      // Inicializamos Firestore evitando las importaciones dinámicas en caliente que bloquea Edge
+      window.db = initializeFirestore(app, {
+        localCache: persistentLocalCache({
+          tabManager: persistentMultipleTabManager(),
+        }),
+      });
     </script>
+
     <!-- EmailJS SDK (deferido para no bloquear) -->
     <script
       defer
