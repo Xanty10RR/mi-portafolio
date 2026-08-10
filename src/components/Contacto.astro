@@ -112,6 +112,11 @@ const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
   animation: haloPulse 6s infinite alternate;
 }
 
+button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgb(106, 122, 244);
+}
+
 @keyframes haloPulse {
   from { opacity: 0.6; transform: scale(1); }
   to { opacity: 1; transform: scale(1.05); }
@@ -145,7 +150,7 @@ const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
   z-index: -1;
   background: linear-gradient(270deg,
     rgba(147, 51, 234, 0.6),   /* purple-600 */
-    rgba(147, 197, 253, 0.5),  /* azul claro 93C5FD */
+    rgba(147, 197, 253, 0.5),  /* azul claro #93C5FD */
     rgba(79, 70, 229, 0.6),    /* indigo */
     rgba(147, 197, 253, 0.4)   /* azul translúcido */
   );
