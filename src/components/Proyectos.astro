@@ -16,6 +16,7 @@ import Tailwind from "../Icons/Tailwind.astro";
 import React from "../Icons/React.astro";
 import Electron from "../Icons/Electron.astro";
 import Vite from "../Icons/Vite.astro";
+import Builderbot from "../Icons/Builderbot.astro";
 
 const Tags = {
   HTML: {
@@ -88,6 +89,11 @@ const Tags = {
     class: "bg-transparent text-[#FFEA83]",
     icon: Vite,
   },
+  Builderbot: {
+    name: "Builderbot",
+    class: "bg-transparent text-[#00BFAF]",
+    icon: Builderbot,
+  }
 };
 
 const ProyectosItem = [
@@ -102,6 +108,7 @@ const ProyectosItem = [
       Tags.JavaScript,
       Tags.NodeJS,
       Tags.ExpressJS,
+      Tags.Builderbot,
       Tags.PostgreSQL,
       Tags.Docker,
     ],
@@ -161,7 +168,7 @@ const ProyectosItem = [
                 >
                   {typeof tag === "object" && tag.icon ? (
                     <>
-                      <tag.icon class="size-4" />
+                      <tag.icon class={`size-4 ${tag.name === "Builderbot" ? "scale-[1.2]" : ""}`} />
                       {tag.name}
                     </>
                   ) : (
