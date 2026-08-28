@@ -25,7 +25,6 @@ const firebaseConfig = {
 <!doctype html>
 <html lang="es">
   <head>
-
     <!-- Metadatos -->
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -264,21 +263,24 @@ const firebaseConfig = {
     height: 9px;
     background: linear-gradient(
       90deg,
-      #8ce0f8, /* azul fluorescente */ 
-      #5147ff, /* azul marino */ 
-      #361b7e /* morado profundo */
+      #8ce0f8,
+      /* azul fluorescente */ #5147ff,
+      /* azul marino */ #361b7e /* morado profundo */
     );
     z-index: 9999;
     animation: alternate 2s infinite;
   }
 
-  header nav ul li {
-    display: flex; /* Permite que el 'a' se mueva libremente dentro */
+  /* Aplica tanto al nav de escritorio como al menú móvil */
+  header nav ul li,
+  #mobile-menu ul li {
+    display: flex;
     transition: transform 0.3s ease;
   }
 
-  header nav ul li:hover {
-    transform: translateY(-6px);
+  header nav ul li:hover,
+  #mobile-menu ul li:hover {
+    transform: translateY(-4px);
   }
 
   .navegacion {
@@ -288,10 +290,10 @@ const firebaseConfig = {
     transition:
       color 0.3s ease,
       text-shadow 0.3s ease;
-    text-align: center;
   }
 
-  header nav ul li:hover .navegacion {
+  header nav ul li:hover .navegacion,
+  #mobile-menu ul li:hover .navegacion {
     color: #916df2;
     text-shadow:
       0 0 8px #916df2,
@@ -313,7 +315,8 @@ const firebaseConfig = {
     transition: width 0.3s ease;
   }
 
-  header nav ul li:hover .navegacion::after {
+  header nav ul li:hover .navegacion::after,
+  #mobile-menu ul li:hover .navegacion::after {
     width: 100%;
   }
 

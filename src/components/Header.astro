@@ -1,9 +1,14 @@
-<header class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-lg z-30 border-b border-white/10">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-24">
-    
+<header
+  class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-lg z-30 border-b border-white/10"
+>
+  <div
+    class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-24"
+  >
     <!-- Logo / Título (con whitespace-nowrap para evitar que se baje de línea) -->
     <a href="/#top" class="flex items-center">
-      <span class="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-wide whitespace-nowrap">
+      <span
+        class="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-wide whitespace-nowrap"
+      >
         Bienvenid@ a mi Portafolio
       </span>
     </a>
@@ -23,33 +28,75 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M1 1h15M1 7h15M1 13h15">
+          d="M1 1h15M1 7h15M1 13h15"
+        >
         </path>
       </svg>
     </button>
-    
+
     <!-- Menú  en pantallas grandes -->
     <nav class="hidden lg:block" id="navbar-menu">
-      <ul class="font-medium flex flex-col lg:flex-row lg:space-x-6 xl:space-x-8 items-center">
-        <li><a class="navegacion text-gray-300 hover:text-white transition-colors text-sm xl:text-base py-2" href="/#top">Inicio</a></li>
-        <li><a class="navegacion text-gray-300 hover:text-white transition-colors text-sm xl:text-base py-2" href="/#experiencia">Experiencia</a></li>
-        <li><a class="navegacion text-gray-300 hover:text-white transition-colors text-sm xl:text-base py-2" href="/#proyectos">Proyectos</a></li>
-        <li><a class="navegacion text-gray-300 hover:text-white transition-colors text-sm xl:text-base py-2" href="/#habilidades">Habilidades</a></li>
-        <li><a class="navegacion text-gray-300 hover:text-white transition-colors text-sm xl:text-base py-2" href="/#sobre-mi">Sobre mí</a></li>
-        <li><a class="navegacion text-gray-300 hover:text-white transition-colors text-sm xl:text-base py-2" href="/#contacto">Contáctame</a></li>
+      <ul
+        class="font-medium flex flex-col lg:flex-row lg:space-x-6 xl:space-x-8 items-center"
+      >
+        <li>
+          <a
+            class="navegacion transition-colors text-sm xl:text-base py-2"
+            href="/#top">Inicio</a>
+        </li>
+        <li>
+          <a
+            class="navegacion transition-colors text-sm xl:text-base py-2"
+            href="/#experiencia">Experiencia</a>
+        </li>
+        <li>
+          <a
+            class="navegacion transition-colors text-sm xl:text-base py-2"
+            href="/#proyectos">Proyectos</a>
+        </li>
+        <li>
+          <a
+            class="navegacion transition-colors text-sm xl:text-base py-2"
+            href="/#habilidades">Habilidades</a>
+        </li>
+        <li>
+          <a
+            class="navegacion transition-colors text-sm xl:text-base py-2"
+            href="/#sobre-mi">Sobre mí</a>
+        </li>
+        <li>
+          <a
+            class="navegacion transition-colors text-sm xl:text-base py-2"
+            href="/#contacto">Contáctame</a>
+        </li>
       </ul>
     </nav>
   </div>
 
   <!-- Menú desplegable al hacer clic en el botón en pantallas pequeñas y medianas -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 px-6 pt-2 pb-6">
-    <ul class="flex flex-col space-y-3 font-medium">
-      <li><a class="block navegacion text-gray-300 hover:text-white transition-colors py-1" href="/#top">Inicio</a></li>
-      <li><a class="block navegacion text-gray-300 hover:text-white transition-colors py-1" href="/#experiencia">Experiencia</a></li>
-      <li><a class="block navegacion text-gray-300 hover:text-white transition-colors py-1" href="/#proyectos">Proyectos</a></li>
-      <li><a class="block navegacion text-gray-300 hover:text-white transition-colors py-1" href="/#habilidades">Habilidades</a></li>
-      <li><a class="block navegacion text-gray-300 hover:text-white transition-colors py-1" href="/#sobre-mi">Sobre mí</a></li>
-      <li><a class="block navegacion text-gray-300 hover:text-white transition-colors py-1" href="/#contacto">Contáctame</a></li>
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-2xl px-6 py-4"
+  >
+    <ul class="flex flex-col space-y-4 font-medium">
+      <li><a class="block navegacion py-1 w-fit" href="/#top">Inicio</a></li>
+      <li>
+        <a class="block navegacion py-1 w-fit" href="/#experiencia"
+          >Experiencia</a>
+      </li>
+      <li>
+        <a class="block navegacion py-1 w-fit" href="/#proyectos">Proyectos</a>
+      </li>
+      <li>
+        <a class="block navegacion py-1 w-fit" href="/#habilidades"
+          >Habilidades</a>
+      </li>
+      <li>
+        <a class="block navegacion py-1 w-fit" href="/#sobre-mi">Sobre mí</a>
+      </li>
+      <li>
+        <a class="block navegacion py-1 w-fit" href="/#contacto">Contáctame</a>
+      </li>
     </ul>
   </div>
 </header>
@@ -57,7 +104,7 @@
 <div id="barra" class="fixed top-0 left-0"></div>
 
 <script>
-  import.meta; 
+  import.meta;
   document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
