@@ -76,10 +76,10 @@
   <!-- Menú desplegable al hacer clic en el botón en pantallas pequeñas y medianas -->
   <div
     id="mobile-menu"
-    class="hidden lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-2xl px-6 py-4"
+    class="mobile-menu flex flex-col text-center absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-2xl px-6 py-4 items-center"
   >
     <ul class="flex flex-col space-y-4 font-medium">
-      <li><a class="block navegacion py-1 w-fit" href="/#top">Inicio</a></li>
+      <li><a class="block navegacion py-1" href="/#top">Inicio</a></li>
       <li>
         <a class="block navegacion py-1 w-fit" href="/#experiencia"
           >Experiencia</a>
@@ -103,6 +103,16 @@
 
 <div id="barra" class="fixed top-0 left-0"></div>
 
+<style>
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu.is-open {
+    display: flex;
+  }
+</style>
+
 <script>
   import.meta;
   document.addEventListener("DOMContentLoaded", () => {
@@ -113,14 +123,14 @@
       const navLinks = mobileMenu.querySelectorAll("a");
 
       menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("is-open");
         const isExpanded = menuBtn.getAttribute("aria-expanded") === "true";
         menuBtn.setAttribute("aria-expanded", isExpanded ? "false" : "true");
       });
 
       navLinks.forEach((link) => {
         link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("is-open");
           menuBtn.setAttribute("aria-expanded", "false");
         });
       });
