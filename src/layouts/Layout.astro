@@ -25,6 +25,8 @@ const firebaseConfig = {
 <!doctype html>
 <html lang="es">
   <head>
+
+    <!-- Metadatos -->
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,7 +64,7 @@ const firebaseConfig = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- Firebase (Cargado de forma segura y compatible con todos los navegadores) -->
+    <!-- Firebase, cargado de forma segura y compatible con todos los navegadores -->
     <script type="module" is:inline define:vars={{ firebaseConfig }}>
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
       import {
@@ -74,7 +76,7 @@ const firebaseConfig = {
       // Inicializamos la app normalmente
       const app = initializeApp(firebaseConfig);
 
-      // Inicializamos Firestore evitando las importaciones dinámicas en caliente que bloquea Edge
+      // Inicializo Firestore evitando las importaciones dinámicas en caliente que bloquea Edge
       window.db = initializeFirestore(app, {
         localCache: persistentLocalCache({
           tabManager: persistentMultipleTabManager(),
@@ -82,7 +84,7 @@ const firebaseConfig = {
       });
     </script>
 
-    <!-- EmailJS SDK (deferido para no bloquear) -->
+    <!-- EmailJS SDK para enviar correos gratis (deferido para no bloquear) -->
     <script
       defer
       type="text/javascript"
@@ -96,7 +98,7 @@ const firebaseConfig = {
     </div>
     <Header />
     <!-- Espaciador para el header fijo -->
-    <div class="h-20"></div>
+    <div class="h-15"></div>
 
     <main class="px-4 flex-grow">
       <slot />
@@ -107,7 +109,7 @@ const firebaseConfig = {
       src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
     ></script>
 
-    <!-- Scripts globales del sitio -->
+    <!-- Scripts globales -->
     <script is:inline>
       // Script para la barra de progreso de scroll
       window.addEventListener("scroll", () => {
@@ -139,7 +141,7 @@ const firebaseConfig = {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #05050589;
+    background: #05050566;
     color: #f5f5f5;
   }
 
@@ -226,7 +228,7 @@ const firebaseConfig = {
     filter: drop-shadow(0 0 5px rgb(38, 134, 252));
   }
 
-  /* Hover para computador */
+  /* Hover para el carrusel en compu */
   .carousel .imagenes .habilidad:hover svg {
     transform: scale(1.2) rotate(-360deg);
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
@@ -262,9 +264,9 @@ const firebaseConfig = {
     height: 9px;
     background: linear-gradient(
       90deg,
-      #8ce0f8,
-      /* azul fluorescente */ #5147ff,
-      /* azul marino */ #361b7e /* morado profundo */
+      #8ce0f8, /* azul fluorescente */ 
+      #5147ff, /* azul marino */ 
+      #361b7e /* morado profundo */
     );
     z-index: 9999;
     animation: alternate 2s infinite;
@@ -358,10 +360,10 @@ const firebaseConfig = {
     animation: reveal linear both;
     animation-timeline: view();
 
-    /* Animacion empieza cuando el elemento está entrando */
+    /* Animacion general empieza cuando el elemento está entrando */
     animation-range-start: entry 20%;
 
-    /* Fin animacion */
+    /* Fin animacion general */
     animation-range-end: entry 80%;
   }
 
