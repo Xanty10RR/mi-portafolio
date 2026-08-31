@@ -96,12 +96,13 @@ const Tags = {
   }
 };
 
+const mensaje = "Hola, este es un mensaje de prueba 😃"
 const ProyectosItem = [
   {
     titulo: "Asistente SG - Chatbot de Whatsapp",
     descripcion:
       "Desarrollado para la empresa SuperServicios de Nariño S.A. (SuperGIROS) que permite a asesores consultar de forma rápida y automatizada los convenios disponibles para realizar recaudos de convenios y a administrativos solicitar y gestionar requisiciones.\n\nEl sistema implementa flujos conversacionales automatizados, búsqueda de convenios, sugerencias cuando el usuario ingresa términos aproximados, consulta de información almacenada en PostgreSQL y envío de información e imágenes asociadas a algunos convenios específicos. Esto permite reducir drásticamente los tiempos de atención y facilitar el acceso a la información sin necesidad de intervención de un tercero.\n\nEl chatbot fue desarrollado con Node.js, TypeScript y BuilderBot, y en producción se integra con la API de WhatsApp de Meta. La aplicación está preparada para ejecutarse mediante Docker y desplegarse en infraestructura cloud.",
-    link: "https://wa.me/573181057643?text=Hola%2C%20este%20es%20un%20mensaje%20de%20prueba%20%F0%9F%98%83",
+    link: `https://wa.me/573181057643?text=${encodeURIComponent(mensaje)}`,
     imagen: "/proyectos/img-bot-whatsapp.webp",
     tags: [
       Tags.Builderbot,
