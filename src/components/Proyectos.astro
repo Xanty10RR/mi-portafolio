@@ -93,10 +93,27 @@ const Tags = {
     name: "WhatsApp Cloud API",
     class: "bg-transparent text-[#25D366]",
     icon: Whatsapp,
-  }
+  },
 };
 
 const ProyectosItem = [
+  {
+    titulo: "SuperMenú - Panel de control de servicios (ERP/BOPA)",
+    descripcion:
+      "Plataforma de escritorio que centraliza y automatiza procesos empresariales internos en una sola aplicación. Integra gestión de requisiciones, logística, convenios bancarios, administración de usuarios y un centro de operaciones para el chatbot de WhatsApp SuperAsistente como métricas y monitoreo de errores API. \n\nOptimiza la trazabilidad, eficiencia y soporte de una manera significativa. \n\nDesarrollada con Electron, React, Typescript, Axios, Node.js, Express.js y PostgreSQL.",
+    link: "https://supermenu-rho.vercel.app/",
+    imagen: "/proyectos/img-supermenu.webp",
+    tags: [
+      Tags.React,
+      Tags.Electron,
+      Tags.TypeScript,
+      Tags.CSS,
+      Tags.NodeJS,
+      Tags.ExpressJS,
+      Tags.PostgreSQL,
+    ],
+    github: "https://github.com/Xanty10RR/SuperMenu.git",
+  },
   {
     titulo: "SuperAsistente - Chatbot de Whatsapp",
     descripcion:
@@ -114,15 +131,6 @@ const ProyectosItem = [
       Tags.Docker,
     ],
     github: "https://github.com/Xanty10RR/Bot-WhatsApp-SSN.git",
-  },
-  {
-    titulo: "SuperMenú - Panel de control de servicios (ERP/BOPA)",
-    descripcion:
-      "Plataforma de escritorio que centraliza y automatiza procesos empresariales internos en una sola aplicación. Integra gestión de requisiciones, logística, convenios bancarios, administración de usuarios y un centro de operaciones para el chatbot de WhatsApp SuperAsistente como métricas y monitoreo de errores API. \n\nOptimiza la trazabilidad, eficiencia y soporte de una manera significativa. \n\nDesarrollada con Electron, React, Typescript, Axios, Node.js, Express.js y PostgreSQL.",
-    link: "https://supermenu-rho.vercel.app/",
-    imagen: "/proyectos/img-supermenu.webp",
-    tags: [Tags.React, Tags.Electron, Tags.TypeScript, Tags.CSS, Tags.NodeJS, Tags.ExpressJS, Tags.PostgreSQL],
-    github: "https://github.com/Xanty10RR/SuperMenu.git",
   },
   {
     titulo: "Encuesta de Satisfacción al Cliente",
@@ -155,7 +163,9 @@ const ProyectosItem = [
           class="h-56 w-full object-cover rounded shadow-sm transition-all duration-700 hover:scale-110 hover:bg-blue-300 hover:shadow-blue-300"
         />
         <div class="p-4 flex flex-col flex-1 hover:shadow-[0_0_5px_rgba(147,197,253)]">
-          <h3 class="text-xl text-center font-bold text-[#93C5FD] mb-2">{titulo}</h3>
+          <h3 class="text-xl text-center font-bold text-[#93C5FD] mb-2">
+            {titulo}
+          </h3>
           <div class="text-gray-200 mb-2 font-semibold text-md md:text-lg lg:text-lg">
             {descripcion.split("\n\n").map((par, idx) => (
               <p class="mb-2">{par}</p>
@@ -169,7 +179,9 @@ const ProyectosItem = [
                 >
                   {typeof tag === "object" && tag.icon ? (
                     <>
-                      <tag.icon class={`size-4 ${tag.name === "Builderbot" ? "scale-[1.2]" : ""}`} />
+                      <tag.icon
+                        class={`size-4 ${tag.name === "Builderbot" ? "scale-[1.2]" : ""}`}
+                      />
                       {tag.name}
                     </>
                   ) : (
